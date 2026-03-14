@@ -1,5 +1,5 @@
 public class Car {
-    public int distance = 0;
+    private int distance = 0;
     private String name;
     private NumberGeneratorImpl numberGenerator;
 
@@ -19,5 +19,9 @@ public class Car {
 
     public String getName() {
         return this.name;
+    }
+
+    public int getDistance() {
+        return this.distance;
     }
 }
