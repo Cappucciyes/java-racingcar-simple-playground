@@ -8,7 +8,7 @@ public class CarTest {
     Car testCar;
     @BeforeEach
     public void setupTest() {
-        this.testCar = new Car("TestCar", new TestNumberGeneratorImpl(0));
+        this.testCar = new Car("TestCar", new TestNumberGeneratorImpl());
     }
 
     @Test
