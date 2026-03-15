@@ -1,5 +1,7 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import static java.lang.Math.max;
 
 public class Race {
     private final List<Car> racers;
@@ -17,19 +19,22 @@ public class Race {
     }
 
     public List<String> getCurrentWinners() {
-        int maxScore = 0;
-        List<String> winnerNames = new ArrayList<String>();
-
-        for (Car racer:this.racers) {
-            int currentScore = racer.getDistance();
-            if (currentScore > maxScore) maxScore = currentScore;
+        if (this.racers.isEmpty()) {
+            return new ArrayList<String>();
         }
 
-        for (Car racer:this.racers){
-            int currentScore = racer.getDistance();
-            if (currentScore == maxScore) winnerNames.add(racer.getName());
-        }
+        int maxScore = getMaxScore();
 
-        return winnerNames;
+        return this.racers.stream()
+                .filter(racer -> racer.getDistance() == maxScore)
+                .map(Car::getName)
+                .toList();
+    }
+
+    private int getMaxScore() {
+        return this.racers.stream()
+                .map(Car::getDistance)
+                .max(Integer::compare)
+                .orElse(0);
     }
 }
