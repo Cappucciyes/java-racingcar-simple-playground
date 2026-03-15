@@ -33,7 +33,8 @@ public class RaceTest {
 
     @Test
     public void testRace() {
-        this.race = new Race();
+        Assertions.assertTrue(race.getCurrentWinners().isEmpty());
+
         for (int i = 0 ; i < 2; i++) race.addCar(new Car(Integer.toString(i), new TestNumberGeneratorImpl(3)));
         for (int i = 2 ; i < 5; i++) race.addCar(new Car(Integer.toString(i), new TestNumberGeneratorImpl(9)));
 
