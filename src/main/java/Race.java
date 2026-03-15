@@ -1,7 +1,4 @@
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import static java.lang.Math.max;
 
 public class Race {
     private final List<Car> racers;
