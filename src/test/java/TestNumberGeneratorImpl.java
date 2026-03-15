@@ -5,6 +5,10 @@ public class TestNumberGeneratorImpl implements NumberGenerator {
         this.number = 0;
     }
 
+    TestNumberGeneratorImpl(int startingNumber) {
+        this.number = startingNumber;
+    }
+
     @Override
     public int generateNumber() {
         int result = number;
