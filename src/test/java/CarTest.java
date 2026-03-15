@@ -12,6 +12,13 @@ public class CarTest {
     }
 
     @Test
+    public void testCarHasName() {
+        testCar = new Car("Bob");
+        Assertions.assertEquals("Bob", testCar.getName());
+        testCar = new Car("Alice");
+        Assertions.assertEquals("Alice", testCar.getName());
+    }
+    @Test
     public void testCarMovesForwardProperly() {
         for (int i = 0; i < 5; i++) {
             testCar.move();
