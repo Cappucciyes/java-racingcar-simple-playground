@@ -10,3 +10,10 @@
 - `NumberGenerator.java` : 숫자 생성을 담당하는 인터페이스
 - `NumberGeneratorImpl.java` : 실제 자동차 객체에 사용하는 `NumberGenerator.java`의 구현체
 - `TestNumberGeneratorImpl.java` : 테스트에서 사용할 `NumberGenerator.java`의 구현체
+
+# 2단계 - 우승 자동차 구하기
+## 요구사항
+- n대의 자동차가 참여할 수 있다.
+- 자동차 경주 게임을 완료한 후 누가 우승했는지를 구할 수 있다. 우승자는 한 명 이상일 수 있다.
+## 구현
+- `Race.java` : 여러 자동차의 경주의 상태를 관리하는 구현체
