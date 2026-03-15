@@ -1,13 +1,13 @@
 public class Car {
     private int distance = 0;
     private String name;
-    private NumberGeneratorImpl numberGenerator;
+    private NumberGenerator numberGenerator;
 
     Car(String name) {
         this.name = name;
         this.numberGenerator = new NumberGeneratorImpl();
     }
-    Car(String name, NumberGeneratorImpl numberGenerator) {
+    Car(String name, NumberGenerator numberGenerator) {
         this.name = name;
         this.numberGenerator = numberGenerator;
     }
