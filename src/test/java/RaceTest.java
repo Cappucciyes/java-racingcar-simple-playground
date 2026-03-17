@@ -34,8 +34,12 @@ public class RaceTest {
     public void testRace() {
         Assertions.assertTrue(race.getCurrentWinners().isEmpty());
 
-        for (int i = 0 ; i < 2; i++) race.addCar(new Car(Integer.toString(i), new TestNumberGeneratorImpl(3)));
-        for (int i = 2 ; i < 5; i++) race.addCar(new Car(Integer.toString(i), new TestNumberGeneratorImpl(9)));
+        for (int i = 0 ; i < 2; i++) {
+            race.addCar(new Car(Integer.toString(i), new TestNumberGeneratorImpl(3)));
+        }
+        for (int i = 2 ; i < 5; i++) {
+            race.addCar(new Car(Integer.toString(i), new TestNumberGeneratorImpl(9)));
+        }
 
         race.simulateSingleRound();
         List<String> winners = race.getCurrentWinners();

@@ -7,6 +7,10 @@ public class Race {
         this.racers = new ArrayList<Car>();
     }
 
+    Race(List<Car> racers){
+        this.racers = racers;
+    }
+
     public boolean addCar(Car newRacer) {
         return racers.add(newRacer);
     }
@@ -16,10 +20,6 @@ public class Race {
     }
 
     public List<String> getCurrentWinners() {
-        if (this.racers.isEmpty()) {
-            return new ArrayList<String>();
-        }
-
         int maxScore = getMaxScore();
 
         return this.racers.stream()
@@ -32,6 +32,6 @@ public class Race {
         return this.racers.stream()
                 .map(Car::getDistance)
                 .max(Integer::compare)
-                .orElse(0);
+                .orElse(-1);
     }
 }

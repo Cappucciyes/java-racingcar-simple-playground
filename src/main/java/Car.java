@@ -1,7 +1,7 @@
 public class Car {
     private int distance = 0;
-    private String name;
-    private NumberGenerator numberGenerator;
+    private final String name;
+    private final NumberGenerator numberGenerator;
 
     Car(String name) {
         this.name = name;
@@ -13,8 +13,10 @@ public class Car {
     }
 
     public void move() {
-        int flag = numberGenerator.generateNumber();
-        if (flag >= 4) distance += 1;
+        boolean flag = numberGenerator.generateNumber() >= 4;
+        if (flag) {
+            distance += 1;
+        }
     }
 
     public String getName() {
