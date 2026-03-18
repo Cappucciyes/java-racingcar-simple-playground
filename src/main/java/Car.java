@@ -13,8 +13,8 @@ public class Car {
     }
 
     public void move() {
-        boolean flag = numberGenerator.generateNumber() >= 4;
-        if (flag) {
+        boolean canMove = numberGenerator.generateNumber() >= 4;
+        if (canMove) {
             distance += 1;
         }
     }
