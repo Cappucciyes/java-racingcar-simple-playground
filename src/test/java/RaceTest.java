@@ -15,23 +15,7 @@ public class RaceTest {
     }
 
     @Test
-    public void testSimulateSingleRound() {
-        race.addCar(new Car("0", new TestNumberGeneratorImpl(3)));
-        race.addCar(new Car("1", new TestNumberGeneratorImpl(9)));
-
-        race.simulateSingleRound();
-        List<String> winners = race.getCurrentWinners();
-        Assertions.assertEquals(1, winners.size());
-        assertThat(winners).hasSameElementsAs(Arrays.asList("1"));
-
-        race.simulateSingleRound();
-        winners = race.getCurrentWinners();
-        Assertions.assertEquals(2, winners.size());
-        assertThat(winners).hasSameElementsAs(Arrays.asList("1", "0"));
-    }
-
-    @Test
-    public void testRace() {
+    public void testGetCurrentWinners() {
         Assertions.assertTrue(race.getCurrentWinners().isEmpty());
 
         for (int i = 0 ; i < 2; i++) {

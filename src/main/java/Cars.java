@@ -15,7 +15,9 @@ public class Cars {
     }
 
     public void simulateSingleRound() {
-        for (Car racer: this.racers) racer.move();
+        for (Car racer: this.racers) {
+            racer.move();
+        }
     }
 
     public List<Pair<String, Integer>> getRacerInfo() {
