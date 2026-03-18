@@ -5,16 +5,8 @@ import java.util.*;
 public class Race {
     private final Cars racers;
 
-    Race() {
-        this.racers = new Cars(new ArrayList<Car>());
-    }
-
     Race(Cars racers){
         this.racers = racers;
-    }
-
-    public boolean addCar(Car newRacer) {
-        return racers.addCar(newRacer);
     }
 
     public void simulateSingleRound() {

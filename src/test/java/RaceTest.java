@@ -8,10 +8,13 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RaceTest {
+    Cars currentCars;
     Race race;
+
     @BeforeEach
     public void testSetup () {
-        race = new Race();
+        currentCars = new Cars();
+        race = new Race(currentCars);
     }
 
     @Test
@@ -19,10 +22,10 @@ public class RaceTest {
         Assertions.assertTrue(race.getCurrentWinners().isEmpty());
 
         for (int i = 0 ; i < 2; i++) {
-            race.addCar(new Car(Integer.toString(i), new TestNumberGeneratorImpl(3)));
+            currentCars.addCar(new Car(Integer.toString(i), new TestNumberGeneratorImpl(3)));
         }
         for (int i = 2 ; i < 5; i++) {
-            race.addCar(new Car(Integer.toString(i), new TestNumberGeneratorImpl(9)));
+            currentCars.addCar(new Car(Integer.toString(i), new TestNumberGeneratorImpl(9)));
         }
 
         race.simulateSingleRound();

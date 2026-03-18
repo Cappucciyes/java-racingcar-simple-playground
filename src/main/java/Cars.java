@@ -6,6 +6,9 @@ import java.util.List;
 public class Cars {
     private final List<Car> racers;
 
+    Cars() {
+       this.racers = new ArrayList<Car>();
+    }
     Cars(List<Car> racers) {
         this.racers = racers;
     }
