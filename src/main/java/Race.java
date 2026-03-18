@@ -1,4 +1,4 @@
-import utils.Pair;
+import utils.RacerInfo;
 
 import java.util.*;
 
@@ -26,13 +26,13 @@ public class Race {
 
         return this.racers.getRacerInfo().stream()
                 .filter(racer -> racer.distance() == maxScore)
-                .map(Pair::name)
+                .map(RacerInfo::name)
                 .toList();
     }
 
     private int getMaxScore() {
         return this.racers.getRacerInfo().stream()
-                .map(Pair::distance)
+                .map(RacerInfo::distance)
                 .max(Integer::compare)
                 .orElse(-1);
     }

@@ -1,4 +1,4 @@
-import utils.Pair;
+import utils.RacerInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +20,11 @@ public class Cars {
         }
     }
 
-    public List<Pair<String, Integer>> getRacerInfo() {
-        List<Pair<String, Integer>> result = new ArrayList<Pair<String, Integer>>();
+    public List<RacerInfo<String, Integer>> getRacerInfo() {
+        List<RacerInfo<String, Integer>> result = new ArrayList<RacerInfo<String, Integer>>();
 
         for (Car racer: racers) {
-            result.add(new Pair<>(racer.getName(), racer.getDistance()));
+            result.add(new RacerInfo<>(racer.getName(), racer.getDistance()));
         }
 
         return result;
