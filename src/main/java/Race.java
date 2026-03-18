@@ -9,8 +9,8 @@ public class Race {
         this.racers = new Cars(new ArrayList<Car>());
     }
 
-    Race(List<Car> racers){
-        this.racers = new Cars(racers);
+    Race(Cars racers){
+        this.racers = racers;
     }
 
     public boolean addCar(Car newRacer) {
