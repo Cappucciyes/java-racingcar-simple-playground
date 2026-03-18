@@ -1,36 +1,38 @@
+import utils.Pair;
+
 import java.util.*;
 
 public class Race {
-    private final List<Car> racers;
+    private final Cars racers;
 
     Race() {
-        this.racers = new ArrayList<Car>();
+        this.racers = new Cars(new ArrayList<Car>());
     }
 
     Race(List<Car> racers){
-        this.racers = racers;
+        this.racers = new Cars(racers);
     }
 
     public boolean addCar(Car newRacer) {
-        return racers.add(newRacer);
+        return racers.addCar(newRacer);
     }
 
     public void simulateSingleRound() {
-        for (Car racer: this.racers) racer.move();
+        this.racers.simulateSingleRound();
     }
 
     public List<String> getCurrentWinners() {
         int maxScore = getMaxScore();
 
-        return this.racers.stream()
-                .filter(racer -> racer.getDistance() == maxScore)
-                .map(Car::getName)
+        return this.racers.getRacerInfo().stream()
+                .filter(racer -> racer.distance() == maxScore)
+                .map(Pair::name)
                 .toList();
     }
 
     private int getMaxScore() {
-        return this.racers.stream()
-                .map(Car::getDistance)
+        return this.racers.getRacerInfo().stream()
+                .map(Pair::distance)
                 .max(Integer::compare)
                 .orElse(-1);
     }
