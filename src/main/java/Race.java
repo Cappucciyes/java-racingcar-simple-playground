@@ -1,5 +1,3 @@
-import utils.RacerInfo;
-
 import java.util.*;
 
 public class Race {
@@ -9,23 +7,13 @@ public class Race {
         this.racers = racers;
     }
 
-    public void simulateSingleRound() {
-        this.racers.simulateSingleRound();
+    public void simulateRounds(int n) {
+        for (int i = 0; i < n; i ++) {
+            this.racers.tryMovingEveryCar();
+        }
     }
 
     public List<String> getCurrentWinners() {
-        int maxScore = getMaxScore();
-
-        return this.racers.getRacerInfo().stream()
-                .filter(racer -> racer.distance() == maxScore)
-                .map(RacerInfo::name)
-                .toList();
-    }
-
-    private int getMaxScore() {
-        return this.racers.getRacerInfo().stream()
-                .map(RacerInfo::distance)
-                .max(Integer::compare)
-                .orElse(-1);
+        return this.racers.getMaxDistanceCarNames();
     }
 }

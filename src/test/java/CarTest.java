@@ -13,16 +13,34 @@ public class CarTest {
 
     @Test
     public void testCarHasName() {
+        // given
         testCar = new Car("Bob");
+
+        //result
         Assertions.assertEquals("Bob", testCar.getName());
-        testCar = new Car("Alice");
-        Assertions.assertEquals("Alice", testCar.getName());
     }
     @Test
-    public void testCarMovesForwardProperly() {
-        for (int i = 0; i < 5; i++) {
+    public void testCarMovesDoesNotMoveProperly() {
+        //given
+        this.testCar = new Car("TestCar", new TestNumberGeneratorImpl(0));
+
+        // when
+        testCar.move();
+
+        // result
+        Assertions.assertEquals(0, testCar.getDistance());
+    }
+
+    @Test
+    public void testCarMovesProperly() {
+        //given
+        this.testCar = new Car("TestCar", new TestNumberGeneratorImpl(4));
+
+        for (int i = 1; i <= 2; i++) {
+            // when
             testCar.move();
-            Assertions.assertEquals(max(3, i) - 3, testCar.getDistance());
+            // result
+            Assertions.assertEquals(i, testCar.getDistance());
         }
     }
 }

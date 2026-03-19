@@ -18,26 +18,36 @@ public class RaceTest {
     }
 
     @Test
-    public void testGetCurrentWinners() {
-        Assertions.assertTrue(race.getCurrentWinners().isEmpty());
+    public void testSimulateRoundsWhenEmpty() {
+        // given
+        List<String> winners = race.getCurrentWinners();
+        Assertions.assertEquals(0, winners.size());
 
-        for (int i = 0 ; i < 2; i++) {
-            currentCars.addCar(new Car(Integer.toString(i), new TestNumberGeneratorImpl(3)));
-        }
-        for (int i = 2 ; i < 5; i++) {
-            currentCars.addCar(new Car(Integer.toString(i), new TestNumberGeneratorImpl(9)));
-        }
+        // when
+        race.simulateRounds(1);
 
-        race.simulateSingleRound();
+        // result
+        winners = race.getCurrentWinners();
+        Assertions.assertEquals(0, winners.size());
+    }
+
+    @Test
+    public void testSimulateRounds() {
+        currentCars.addCar(new Car(Integer.toString(0), new TestNumberGeneratorImpl(0)));
+        currentCars.addCar(new Car(Integer.toString(1), new TestNumberGeneratorImpl(1)));
+        currentCars.addCar(new Car(Integer.toString(9), new TestNumberGeneratorImpl(9)));
+
         List<String> winners = race.getCurrentWinners();
         Assertions.assertEquals(3, winners.size());
-        assertThat(winners).hasSameElementsAs(Arrays.asList("2","3","4"));
 
-        race.simulateSingleRound();
-        race.simulateSingleRound();
+        race.simulateRounds(1);
+        winners = race.getCurrentWinners();
+        Assertions.assertEquals(1, winners.size());
+        assertThat(winners).hasSameElementsAs(Arrays.asList("9"));
 
+        race.simulateRounds(3);
         winners = race.getCurrentWinners();
         Assertions.assertEquals(2, winners.size());
-        assertThat(winners).hasSameElementsAs(Arrays.asList("0","1"));
+        assertThat(winners).hasSameElementsAs(Arrays.asList("9","1"));
     }
 }

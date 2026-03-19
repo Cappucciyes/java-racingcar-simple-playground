@@ -1,5 +1,3 @@
-import utils.RacerInfo;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,19 +15,25 @@ public class Cars {
         return racers.add(newCar);
     }
 
-    public void simulateSingleRound() {
+    public void tryMovingEveryCar() {
         for (Car racer: this.racers) {
             racer.move();
         }
     }
 
-    public List<RacerInfo<String, Integer>> getRacerInfo() {
-        List<RacerInfo<String, Integer>> result = new ArrayList<RacerInfo<String, Integer>>();
+    public List<String> getMaxDistanceCarNames() {
+        int maxScore = getMaxScore();
 
-        for (Car racer: racers) {
-            result.add(new RacerInfo<>(racer.getName(), racer.getDistance()));
-        }
+        return this.racers.stream()
+                .filter(racer -> racer.getDistance() == maxScore)
+                .map(Car::getName)
+                .toList();
+    }
 
-        return result;
+    private int getMaxScore() {
+        return this.racers.stream()
+                .map(Car::getDistance)
+                .max(Integer::compare)
+                .orElse(-1);
     }
 }

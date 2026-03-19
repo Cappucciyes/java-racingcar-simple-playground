@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.RacerInfo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,43 +16,32 @@ public class CarsTest {
     }
 
     @Test
-    public void testGetRacerInfo() {
-        cars.addCar(new Car("0", new TestNumberGeneratorImpl(3)));
-
-        List<RacerInfo<String, Integer>> winners = cars.getRacerInfo();
-        Assertions.assertEquals(1, winners.size());
-        assertThat(winners).hasSameElementsAs(Arrays.asList(
-                new RacerInfo<>("0", 0)
-        ));
-
-        cars.simulateSingleRound();
-        winners = cars.getRacerInfo();
-        Assertions.assertEquals(1, winners.size());
-        assertThat(winners).hasSameElementsAs(Arrays.asList(
-                new RacerInfo<>("0", 0)
-        ));
-
+    public void testTryMovingEveryCar() {
+        // given
+        cars.addCar(new Car("0", new TestNumberGeneratorImpl(9)));
         cars.addCar(new Car("1", new TestNumberGeneratorImpl(9)));
-        cars.simulateSingleRound();
 
-        winners = cars.getRacerInfo();
+        // when
+        cars.tryMovingEveryCar();
+
+        // result
+        List<String> winners = cars.getMaxDistanceCarNames();
         Assertions.assertEquals(2, winners.size());
-        assertThat(winners).hasSameElementsAs(Arrays.asList(
-                new RacerInfo<>("0", 1),
-                new RacerInfo<>("1", 1)
-        ));
+        assertThat(winners).hasSameElementsAs(Arrays.asList("1", "0"));
     }
 
     @Test
-    public void testSimulateSingleRound() {
-        cars.addCar(new Car("0", new TestNumberGeneratorImpl(3)));
-        cars.addCar(new Car("1", new TestNumberGeneratorImpl(9)));
+    public void testGetMaxDistanceCarNames() {
+        // given
+        cars.addCar(new Car(Integer.toString(0), new TestNumberGeneratorImpl(3)));
+        cars.addCar(new Car(Integer.toString(1), new TestNumberGeneratorImpl(9)));
 
-        cars.simulateSingleRound();
-        List<RacerInfo<String, Integer>> winners = cars.getRacerInfo();
-        Assertions.assertEquals(2, winners.size());
-        assertThat(winners).hasSameElementsAs(Arrays.asList(
-                new RacerInfo<>("0", 0),
-                new RacerInfo<>("1", 1)
-        ));
-    }}
+        //when
+        cars.tryMovingEveryCar();
+
+        // result
+        List<String> winners = cars.getMaxDistanceCarNames();
+        Assertions.assertEquals(1, winners.size());
+        assertThat(winners).hasSameElementsAs(Arrays.asList("1"));
+    }
+}
