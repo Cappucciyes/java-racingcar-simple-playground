@@ -1,3 +1,11 @@
+package controller;
+
+import model.Car;
+import model.Cars;
+import model.Race;
+import view.InputView;
+import view.OutputView;
+
 import java.util.List;
 
 public class RaceController {
@@ -6,7 +14,7 @@ public class RaceController {
     private final Cars cars;
     private final Race race;
 
-    RaceController(InputView inputView, OutputView outputView) {
+    public RaceController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.cars = new Cars();

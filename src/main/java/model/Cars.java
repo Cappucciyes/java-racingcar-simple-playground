@@ -1,12 +1,14 @@
+package model;
+
 import java.util.*;
 
 public class Cars {
     private final List<Car> racers;
 
-    Cars() {
+    public Cars() {
        this.racers = new ArrayList<Car>();
     }
-    Cars(List<Car> racers) {
+    public Cars(List<Car> racers) {
         this.racers = racers;
     }
 

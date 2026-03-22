@@ -1,11 +1,13 @@
+package components;
+
 public class TestNumberGeneratorImpl implements NumberGenerator {
     private int number;
 
-    TestNumberGeneratorImpl() {
+    public TestNumberGeneratorImpl() {
         this.number = 0;
     }
 
-    TestNumberGeneratorImpl(int startingNumber) {
+    public TestNumberGeneratorImpl(int startingNumber) {
         this.number = startingNumber;
     }
 

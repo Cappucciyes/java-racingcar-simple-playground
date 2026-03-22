@@ -1,9 +1,11 @@
+package model;
+
 import java.util.*;
 
 public class Race {
     private final Cars racers;
 
-    Race(Cars racers){
+    public Race(Cars racers){
         this.racers = racers;
     }
 

@@ -1,13 +1,19 @@
+package model;
+
+import components.NumberGenerator;
+import components.NumberGeneratorImpl;
+
 public class Car {
     private int distance = 0;
     private final String name;
     private final NumberGenerator numberGenerator;
 
-    Car(String name) {
+    public Car(String name) {
         this.name = name;
         this.numberGenerator = new NumberGeneratorImpl();
     }
-    Car(String name, NumberGenerator numberGenerator) {
+
+    public Car(String name, NumberGenerator numberGenerator) {
         this.name = name;
         this.numberGenerator = numberGenerator;
     }

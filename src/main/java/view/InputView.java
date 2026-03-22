@@ -1,3 +1,5 @@
+package view;
+
 import constants.ErrorMessage;
 
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ public class InputView {
 
     private final Scanner scanner;
 
-    InputView(Scanner scanner) {
+    public InputView(Scanner scanner) {
         this.scanner = scanner;
     }
 
