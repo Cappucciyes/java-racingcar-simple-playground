@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Cars {
     private final List<Car> racers;
@@ -28,6 +27,33 @@ public class Cars {
                 .filter(racer -> racer.getDistance() == maxScore)
                 .map(Car::getName)
                 .toList();
+    }
+
+    public Map<String, List<Integer>> getRacerInfo() {
+        Map<String, List<Integer>> result = new HashMap<String, List<Integer>>();
+        Set<String> racerName = this.getRacerNames();
+
+        for (String name: racerName) {
+            result.put(name, new ArrayList<Integer>());
+        }
+
+        for (Car racer: racers) {
+            String name = racer.getName();
+            Integer distance = racer.getDistance();
+            result.get(name).add(distance);
+        }
+
+        return result;
+    }
+
+    private Set<String> getRacerNames() {
+        Set<String> result = new HashSet<String>();
+
+        for (Car racer: racers) {
+            result.add(racer.getName());
+        }
+
+        return result;
     }
 
     private int getMaxScore() {

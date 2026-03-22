@@ -16,4 +16,8 @@ public class Race {
     public List<String> getCurrentWinners() {
         return this.racers.getMaxDistanceCarNames();
     }
+
+    public Map<String, List<Integer>> getCurrentState() {
+        return this.racers.getRacerInfo();
+    }
 }
