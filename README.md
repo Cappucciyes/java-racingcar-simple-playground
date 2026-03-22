@@ -25,5 +25,5 @@
 ## 구현
 - `InputView.java` : 입력을 처리하는 클래스
 - `OutputView.java` : 출력을 처리하는 클래스
-- `RaceController.java` : 2단계의 `Race.java`클래스를 대신해, 게임의 전반적인 진행과정 제어
+- `RaceController.java` : 2단계의 `Race.java`클래스를 통해 전반적인 진행과정 제어
 - `Main.java` : main 함수를 포함하는 클래스 
