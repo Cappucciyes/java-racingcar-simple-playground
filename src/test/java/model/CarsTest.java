@@ -21,6 +21,7 @@ public class CarsTest {
     }
 
     @Test
+    @DisplayName("각 실행마다 모든 차가 전진하려 한다.")
     public void testTryMovingEveryCar() {
         // given
         cars.addCar(new Car("0", new TestNumberGeneratorImpl(9)));
@@ -36,6 +37,7 @@ public class CarsTest {
     }
 
     @Test
+    @DisplayName("가장 멀리 간 자동차 이름만 반환한다.")
     public void testGetMaxDistanceCarNames() {
         // given
         cars.addCar(new Car(Integer.toString(0), new TestNumberGeneratorImpl(3)));
@@ -51,6 +53,7 @@ public class CarsTest {
     }
 
     @Test
+    @DisplayName("모든 자동차의 정보를 반환한다.")
     void testGetRacerInfo() {
         // given
         cars.addCar(new Car(Integer.toString(0), new TestNumberGeneratorImpl(3)));

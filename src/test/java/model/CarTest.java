@@ -3,6 +3,7 @@ package model;
 import components.TestNumberGeneratorImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CarTest {
@@ -13,6 +14,7 @@ public class CarTest {
     }
 
     @Test
+    @DisplayName("자동차는 이름을 가진다")
     public void testCarHasName() {
         // given
         testCar = new Car("Bob");
@@ -21,6 +23,7 @@ public class CarTest {
         Assertions.assertEquals("Bob", testCar.getName());
     }
     @Test
+    @DisplayName("자동차는 4 미만일 때 전진하지 않는다.")
     public void testCarMovesDoesNotMoveProperly() {
         //given
         this.testCar = new Car("TestCar", new TestNumberGeneratorImpl(0));
@@ -33,6 +36,7 @@ public class CarTest {
     }
 
     @Test
+    @DisplayName("자동차는 4 이상일 때 앞으로 전진한다.")
     public void testCarMovesProperly() {
         //given
         this.testCar = new Car("TestCar", new TestNumberGeneratorImpl(4));
