@@ -37,7 +37,7 @@ public class CarsTest {
     }
 
     @Test
-    @DisplayName("가장 멀리 간 자동차 이름만 반환한다.")
+    @DisplayName("가장 멀리 간 자동차가 한 대 이상일 수 있다.")
     public void testGetMaxDistanceCarNames() {
         // given
         cars.addCar(new Car(Integer.toString(0), new TestNumberGeneratorImpl(3)));
@@ -49,7 +49,23 @@ public class CarsTest {
         // result
         List<String> winners = cars.getMaxDistanceCarNames();
         Assertions.assertEquals(1, winners.size());
-        assertThat(winners).hasSameElementsAs(Arrays.asList("1"));
+        assertThat(winners).hasSameElementsAs(List.of("1"));
+    }
+
+    @Test
+    @DisplayName("가장 멀리 간 자동차 이름만 반환한다.")
+    public void testGetMaxDistanceCarMultipleNames() {
+        // given
+        cars.addCar(new Car(Integer.toString(0), new TestNumberGeneratorImpl(9)));
+        cars.addCar(new Car(Integer.toString(1), new TestNumberGeneratorImpl(9)));
+
+        //when
+        cars.tryMovingEveryCar();
+
+        // result
+        List<String> winners = cars.getMaxDistanceCarNames();
+        Assertions.assertEquals(2, winners.size());
+        assertThat(winners).hasSameElementsAs(List.of("0", "1"));
     }
 
     @Test
@@ -70,6 +86,6 @@ public class CarsTest {
         Assertions.assertEquals(2, carState.get("0").size());
         assertThat(carState.get("0")).hasSameElementsAs(Arrays.asList(0,1));
         Assertions.assertEquals(1, carState.get("1").size());
-        assertThat(carState.get("1")).hasSameElementsAs(Arrays.asList(1));
+        assertThat(carState.get("1")).hasSameElementsAs(List.of(1));
     }
 }
