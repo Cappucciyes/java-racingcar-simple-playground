@@ -40,18 +40,11 @@ public class InputView {
         for (String x: inputFromUser.split(CAR_NAME_DELIMITER)) {
             String strippedName = x.strip();
             checkNameHasOtherDelimiters(strippedName);
-            checkNameLength(strippedName);
 
             result.add(strippedName);
         }
 
         return result;
-    }
-
-    private void checkNameLength(String name) {
-        if (name.length() > CAR_NAME_LIMIT) {
-            throw new IllegalArgumentException(ErrorMessage.NAME_TOO_LONG);
-        }
     }
 
     private void checkNameHasOtherDelimiters(String name) {

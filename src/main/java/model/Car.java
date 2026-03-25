@@ -2,6 +2,7 @@ package model;
 
 import components.NumberGenerator;
 import components.NumberGeneratorImpl;
+import constants.ErrorMessage;
 
 public class Car {
     private int distance = 0;
@@ -9,13 +10,21 @@ public class Car {
     private final NumberGenerator numberGenerator;
 
     public Car(String name) {
+        this.checkCarNameIsLessThanSix(name);
         this.name = name;
         this.numberGenerator = new NumberGeneratorImpl();
     }
 
     public Car(String name, NumberGenerator numberGenerator) {
+        this.checkCarNameIsLessThanSix(name);
         this.name = name;
         this.numberGenerator = numberGenerator;
+    }
+
+    private void checkCarNameIsLessThanSix(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException(ErrorMessage.NAME_TOO_LONG);
+        }
     }
 
     public void move() {
