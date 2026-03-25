@@ -23,7 +23,15 @@
 - 자동차 이름은 쉼표(,)를 기준으로 구분하며 이름은 5자 이하만 가능하다.
 - 자동차 경주 게임을 완료한 후 누가 우승했는지를 알려준다. 우승자는 한 명 이상일 수 있다.
 ## 구현
-- `view.InputView.java` : 입력을 처리하는 클래스
-- `view.OutputView.java` : 출력을 처리하는 클래스
-- `controller.RaceController.java` : 2단계의 `model.Race.java`클래스를 통해 전반적인 진행과정 제어
+- `view.InputView.java` : 입력을 요구사항에 맞게 처리하는 클래스
+- `view.OutputView.java` : 출력을 요구사항에 맞게 처리하는 클래스
+- `controller.RaceController.java` : 2단계의 `model.Race.java`클래스를 대신해 전반적인 진행과정 제어
 - `Main.java` : main 함수를 포함하는 클래스 
+
+# 4단계 - 리펙토링
+## 요구사항
+- 테스트 작성
+## 구현 
+- MVC 패턴을 따르도록 코드를 재구성
+- 보기 쉽게 페키지 분리
+- 테스트 작성
