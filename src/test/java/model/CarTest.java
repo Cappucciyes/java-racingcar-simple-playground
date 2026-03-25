@@ -1,6 +1,6 @@
 package model;
 
-import components.TestNumberGeneratorImpl;
+import components.ZeroToNineCyclingGenerator;
 import constants.ErrorMessage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +11,7 @@ class CarTest {
     Car testCar;
     @BeforeEach
     protected void setupTest() {
-        this.testCar = new Car("car", new TestNumberGeneratorImpl());
+        this.testCar = new Car("car", new ZeroToNineCyclingGenerator());
     }
 
     @Test
@@ -27,7 +27,7 @@ class CarTest {
     @DisplayName("자동차는 4 미만일 때 전진하지 않는다.")
     protected void testCarMovesDoesNotMoveProperly() {
         //given
-        this.testCar = new Car("car", new TestNumberGeneratorImpl(0));
+        this.testCar = new Car("car", new ZeroToNineCyclingGenerator(0));
 
         // when
         testCar.move();
@@ -40,7 +40,7 @@ class CarTest {
     @DisplayName("자동차는 4 이상일 때 앞으로 전진한다.")
     protected void testCarMovesProperly() {
         //given
-        this.testCar = new Car("car", new TestNumberGeneratorImpl(4));
+        this.testCar = new Car("car", new ZeroToNineCyclingGenerator(4));
 
         for (int i = 1; i <= 2; i++) {
             // when

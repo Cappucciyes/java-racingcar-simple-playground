@@ -8,8 +8,8 @@
 ## 구현
 - `model.Car.java` : 자동차 객체
 - `components.NumberGenerator.java` : 숫자 생성을 담당하는 인터페이스
-- `components.NumberGeneratorImpl.java` : 실제 자동차 객체에 사용하는 `components.NumberGenerator.java`의 구현체
-- `components.TestNumberGeneratorImpl.java` : 테스트에서 사용할 `components.NumberGenerator.java`의 구현체
+- `components.RandomNumberGenerator.java` : 실제 자동차 객체에 사용하는 `components.NumberGenerator.java`의 구현체
+- `components.ZeroToNineCyclingGenerator.java` : 테스트에서 사용할 `components.NumberGenerator.java`의 구현체
 
 # 2단계 - 우승 자동차 구하기
 ## 요구사항

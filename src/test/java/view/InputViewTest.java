@@ -12,22 +12,6 @@ class InputViewTest {
     InputView inputView;
 
     @ParameterizedTest
-    @ValueSource(strings = {"Angelica, bob", "helloWorld"})
-    @DisplayName("이름이 5글자를 초과하면 안된다.")
-    protected void testParseIntoNamesWithLongName(String testInput) {
-        Scanner scanner = new Scanner(
-            new ByteArrayInputStream(testInput.getBytes())
-        );
-
-        this.inputView = new InputView(scanner);
-
-        Exception expectedException = Assertions.assertThrows(IllegalArgumentException.class,
-                ()-> inputView.getNamesFromUser());
-
-        Assertions.assertEquals(ErrorMessage.NAME_TOO_LONG, expectedException.getMessage());
-    }
-
-    @ParameterizedTest
     @ValueSource(strings = {"alice, bo! b", "ha|he", "alice bob"})
     @DisplayName("이름 입력은 쉼표(,) 로 구분된다.")
     protected void testParseIntoNamesWithWrongDelimiter(String testInput) {

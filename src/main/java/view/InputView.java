@@ -23,7 +23,10 @@ public class InputView {
         System.out.println(ENTER_CAR_NAMES);
         String userInput = scanner.nextLine();
 
-        return this.parseIntoNames(userInput);
+        List<String> parsedName = parseByDelimiter(userInput);
+        checkNameHasOtherDelimiters(parsedName);
+
+        return parsedName;
     }
 
     public int getRoundNumber() {
@@ -34,23 +37,23 @@ public class InputView {
         return Integer.parseInt(userInput);
     }
 
-    private List<String> parseIntoNames(String inputFromUser) {
+    private List<String> parseByDelimiter(String inputFromUser) {
         List<String> result = new ArrayList<String>();
 
         for (String x: inputFromUser.split(CAR_NAME_DELIMITER)) {
             String strippedName = x.strip();
-            checkNameHasOtherDelimiters(strippedName);
-
             result.add(strippedName);
         }
 
         return result;
     }
 
-    private void checkNameHasOtherDelimiters(String name) {
-        if (!name.matches(NAME_REGEX_PATTERN)) {
-            throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INPUT_NOT_CORRECT_FORMAT);
-        }
+    private void checkNameHasOtherDelimiters(List<String> parsedString) {
+        parsedString.forEach((name) -> {
+            if (!name.matches(NAME_REGEX_PATTERN)) {
+                throw new IllegalArgumentException(ErrorMessage.CAR_NAME_INPUT_NOT_CORRECT_FORMAT);
+            }
+        });
     }
 
     private void checkIfInputIsInteger(String userInput) {

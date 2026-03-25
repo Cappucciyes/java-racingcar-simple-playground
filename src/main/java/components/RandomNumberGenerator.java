@@ -2,7 +2,7 @@ package components;
 
 import java.util.Random;
 
-public class NumberGeneratorImpl implements NumberGenerator {
+public class RandomNumberGenerator implements NumberGenerator {
    Random random = new Random();
    @Override
     public int generateNumber() {

@@ -1,13 +1,13 @@
 package components;
 
-public class TestNumberGeneratorImpl implements NumberGenerator {
+public class ZeroToNineCyclingGenerator implements NumberGenerator {
     private int number;
 
-    public TestNumberGeneratorImpl() {
+    public ZeroToNineCyclingGenerator() {
         this.number = 0;
     }
 
-    public TestNumberGeneratorImpl(int startingNumber) {
+    public ZeroToNineCyclingGenerator(int startingNumber) {
         this.number = startingNumber;
     }
 

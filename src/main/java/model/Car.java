@@ -1,7 +1,7 @@
 package model;
 
 import components.NumberGenerator;
-import components.NumberGeneratorImpl;
+import components.RandomNumberGenerator;
 import constants.ErrorMessage;
 
 public class Car {
@@ -12,7 +12,7 @@ public class Car {
     public Car(String name) {
         this.checkCarNameIsLessThanSix(name);
         this.name = name;
-        this.numberGenerator = new NumberGeneratorImpl();
+        this.numberGenerator = new RandomNumberGenerator();
     }
 
     public Car(String name, NumberGenerator numberGenerator) {

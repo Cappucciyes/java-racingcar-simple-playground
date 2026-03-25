@@ -1,17 +1,14 @@
 package controller;
 
-import components.TestNumberGeneratorImpl;
+import components.ZeroToNineCyclingGenerator;
 import model.Car;
 import model.Cars;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import view.InputView;
 import view.OutputView;
 
 import java.io.ByteArrayInputStream;
-import java.math.RoundingMode;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -26,8 +23,8 @@ class RaceControllerTest {
     @DisplayName("주어진 횟수만큼 자동차를 전진시키려 한다.")
     protected void testPlayRace() {
         //given
-        cars.addCar(new Car("alice", new TestNumberGeneratorImpl(3)));
-        cars.addCar(new Car("bob", new TestNumberGeneratorImpl(4)));
+        cars.addCar(new Car("alice", new ZeroToNineCyclingGenerator(3)));
+        cars.addCar(new Car("bob", new ZeroToNineCyclingGenerator(4)));
         Scanner scanner = new Scanner(new ByteArrayInputStream("2".getBytes()));
         raceController = new RaceController(new InputView(scanner), new OutputView(), cars);
 
