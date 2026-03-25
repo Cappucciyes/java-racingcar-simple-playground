@@ -1,5 +1,5 @@
 package components;
 
 public interface NumberGenerator {
-    public int generateNumber();
+    int generateNumber();
 }

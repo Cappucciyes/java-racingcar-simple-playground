@@ -13,16 +13,16 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CarsTest {
+class CarsTest {
     Cars cars;
     @BeforeEach
-    public void testSetup () {
+    protected void testSetup () {
         cars = new Cars(new ArrayList<Car>());
     }
 
     @Test
     @DisplayName("각 실행마다 모든 차가 전진하려 한다.")
-    public void testTryMovingEveryCar() {
+    protected void testTryMovingEveryCar() {
         // given
         cars.addCar(new Car("0", new TestNumberGeneratorImpl(9)));
         cars.addCar(new Car("1", new TestNumberGeneratorImpl(9)));
@@ -38,7 +38,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("가장 멀리 간 자동차가 한 대 이상일 수 있다.")
-    public void testGetMaxDistanceCarNames() {
+    protected void testGetMaxDistanceCarNames() {
         // given
         cars.addCar(new Car(Integer.toString(0), new TestNumberGeneratorImpl(3)));
         cars.addCar(new Car(Integer.toString(1), new TestNumberGeneratorImpl(9)));
@@ -54,7 +54,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("가장 멀리 간 자동차 이름만 반환한다.")
-    public void testGetMaxDistanceCarMultipleNames() {
+    protected void testGetMaxDistanceCarMultipleNames() {
         // given
         cars.addCar(new Car(Integer.toString(0), new TestNumberGeneratorImpl(9)));
         cars.addCar(new Car(Integer.toString(1), new TestNumberGeneratorImpl(9)));
@@ -70,7 +70,7 @@ public class CarsTest {
 
     @Test
     @DisplayName("모든 자동차의 정보를 반환한다.")
-    void testGetRacerInfo() {
+    protected void testGetRacerInfo() {
         // given
         cars.addCar(new Car(Integer.toString(0), new TestNumberGeneratorImpl(3)));
         cars.addCar(new Car(Integer.toString(0), new TestNumberGeneratorImpl(4)));

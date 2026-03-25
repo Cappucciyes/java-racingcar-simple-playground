@@ -24,7 +24,7 @@ class RaceControllerTest {
 
     @Test
     @DisplayName("주어진 횟수만큼 자동차를 전진시키려 한다.")
-    void testPlayRace() {
+    protected void testPlayRace() {
         //given
         cars.addCar(new Car("alice", new TestNumberGeneratorImpl(3)));
         cars.addCar(new Car("bob", new TestNumberGeneratorImpl(4)));
