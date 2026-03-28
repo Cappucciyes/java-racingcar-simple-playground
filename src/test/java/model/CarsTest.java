@@ -37,7 +37,7 @@ class CarsTest {
     }
 
     @Test
-    @DisplayName("가장 멀리 간 자동차가 한 대 이상일 수 있다.")
+    @DisplayName("가장 멀리 간 자동차 이름만 반환한다.")
     protected void testGetMaxDistanceCarNames() {
         // given
         cars.addCar(new Car(Integer.toString(0), new CyclingNumberGenerator(new int[] {3})));
@@ -53,7 +53,7 @@ class CarsTest {
     }
 
     @Test
-    @DisplayName("가장 멀리 간 자동차 이름만 반환한다.")
+    @DisplayName("가장 멀리 간 자동차가 한 대 이상일 수 있다.")
     protected void testGetMaxDistanceCarMultipleNames() {
         // given
         cars.addCar(new Car(Integer.toString(0), new CyclingNumberGenerator(new int[] {9})));

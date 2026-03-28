@@ -40,7 +40,7 @@ class InputViewTest {
     }
 
     @Test
-    @DisplayName("올바르지 않은 실행 횟수 입력")
+    @DisplayName("올바른 실행 횟수 입력")
     protected void testGetRoundNumber() {
         Scanner scanner = new Scanner(
             new ByteArrayInputStream("100".getBytes())
@@ -51,8 +51,8 @@ class InputViewTest {
     }
 
     @ParameterizedTest
-    @DisplayName("올바른 실행 횟수 입력")
-    @ValueSource(strings = {"asdf", "12A123", "1.0"})
+    @DisplayName("올바르지 않은 실행 횟수 입력")
+    @ValueSource(strings = {"asdf", "12A123", "1.0", "1 1"})
     protected void testGetRoundNumberWithWrongInput(String userInput) {
         Scanner scanner = new Scanner(
             new ByteArrayInputStream(userInput.getBytes())

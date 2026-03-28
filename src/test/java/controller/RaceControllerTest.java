@@ -29,4 +29,21 @@ class RaceControllerTest {
         //then
         Assertions.assertEquals(3, cars.getTryMovingEveryCarExecuteCount());
     }
+
+    @Test
+    @DisplayName("통합 테스트 : 현제 자동차 상황은 주어진 횟수만큼 출력, 우승자는 1번 출력한다.")
+    protected void testPlayRaceOutput() {
+        //given
+        cars.addCar(new Car("alice", new CyclingNumberGenerator(new int[] {4})));
+        Scanner scanner = new Scanner(new ByteArrayInputStream("3".getBytes()));
+        MockOutputView mockOutputView = new MockOutputView();
+        raceController = new RaceController(new InputView(scanner), mockOutputView, cars);
+
+        //when
+        raceController.playRace();
+
+        //then
+        Assertions.assertEquals(3, mockOutputView.getPrintCurrentRaceStateExecuteCount());
+        Assertions.assertEquals(1, mockOutputView.getPrintWinnersExecuteCount());
+    }
 }
