@@ -12,15 +12,10 @@ public class RaceController {
     private final OutputView outputView;
     private final Cars cars;
 
-    public RaceController(InputView inputView, OutputView outputView, Cars cars, boolean willAcceptCarNamesFromUser) {
+    public RaceController(InputView inputView, OutputView outputView, Cars cars) {
         this.inputView = inputView;
         this.outputView = outputView;
         this.cars = cars;
-
-        if (willAcceptCarNamesFromUser) {
-            //경주할 자동차 이름을 입력하세요(이름은 쉼표(,)를 기준으로 구분).
-            initRaceController();
-        }
     }
 
     public void playRace() {
@@ -37,7 +32,7 @@ public class RaceController {
         outputView.printWinners(cars.getMaxDistanceCarNames());
     }
 
-    private void initRaceController() {
+    public void addCarsFromUser() {
         List<String> names = inputView.getNamesFromUser();
         for(String name: names) {
             cars.addCar(new Car(name));

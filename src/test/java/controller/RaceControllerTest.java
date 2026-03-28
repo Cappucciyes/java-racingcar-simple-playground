@@ -21,7 +21,7 @@ class RaceControllerTest {
         //given
         cars.addCar(new Car("alice", new CyclingNumberGenerator(new int[] {4})));
         Scanner scanner = new Scanner(new ByteArrayInputStream("3".getBytes()));
-        raceController = new RaceController(new InputView(scanner), new OutputView(), cars, false);
+        raceController = new RaceController(new InputView(scanner), new OutputView(), cars);
 
         //when
         raceController.playRace();
@@ -37,7 +37,7 @@ class RaceControllerTest {
         cars.addCar(new Car("alice", new CyclingNumberGenerator(new int[] {4})));
         Scanner scanner = new Scanner(new ByteArrayInputStream("3".getBytes()));
         MockOutputView mockOutputView = new MockOutputView();
-        raceController = new RaceController(new InputView(scanner), mockOutputView, cars, false);
+        raceController = new RaceController(new InputView(scanner), mockOutputView, cars);
 
         //when
         raceController.playRace();
