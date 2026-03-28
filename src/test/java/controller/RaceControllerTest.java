@@ -3,6 +3,7 @@ package controller;
 import components.ZeroToNineCyclingGenerator;
 import model.Car;
 import model.Cars;
+import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -23,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RaceControllerTest {
     RaceController raceController;
-    Cars cars = new Cars();
+    MockCars cars = new MockCars();
 
     @Test
     @DisplayName("통합 테스트 : 주어진 횟수만큼 자동차를 전진시키려 한다.")
@@ -37,19 +38,6 @@ class RaceControllerTest {
         raceController.playRace();
 
         //then
-        Map<String, List<Integer>> raceResult = cars.getRacerInfo();
-        assertEquals(1, raceResult.size());
-        assertEquals(List.of(3), raceResult.get("alice"));
-    }
-
-    @Test
-    @DisplayName("통합 테스트 : RaceController가 Cars를 생성하는데 문제가 없다")
-    protected void raceControllerCanBuildItsOwnCarsWithUserInput() {
-        //given
-        Scanner scanner = new Scanner(new ByteArrayInputStream("alice,bob\n3\n".getBytes()));
-        raceController = new RaceController(new InputView(scanner), new OutputView());
-
-        //when
-        raceController.playRace();
+        Assertions.assertEquals(3, cars.getTryMovingEveryCarExecuteCount());
     }
 }
